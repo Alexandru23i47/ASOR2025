@@ -1,4 +1,4 @@
-# Tema 2 – Studiu și utilizări ale editorului de fluxuri `sed`
+# Tema 2 – **Cinci** utilizări în linie de comandă ale editorului `sed`
 
 ## Studiu
 
