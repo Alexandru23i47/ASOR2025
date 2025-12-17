@@ -1,4 +1,4 @@
-```
+```6502
 ;PROGRAMUL 4
           lda #$07
           ldx #$0
@@ -9,37 +9,37 @@ memorare: sta $10,x
           bne memorare
 
 ;PROGRAMUL 5
-        lda #$38
-        sta $00
-        and #$0f
+	lda #$38
+	sta $00
+	and #$0f
         tay
         lda $00
         and #$f0
         beq mutare
 calcul: sec
-        inx
-        sbc #$10
-        beq mutare
-        bne calcul
-mutare: clc
-        sta $00
+	inx
+	sbc #$10
+	beq mutare
+	bne calcul
+	mutare: clc
+sta $00
 
 ;PROGRAMUL 7
 define  numarul $7
 define  cifrele $10
-        lda # cifrele
+        lda #cifrele
         sta $00
-        lda # numarul
+        lda #numarul
         sta $01
 calcul: dec $00
-        eor $00
-        beq final
-        lda $01
-        bne calcul
+	eor $00
+	beq final
+	lda $01
+	bne calcul
 final:  ldx $01
-        lda #$00
-        sta $00
-        sta $01
+	lda #$00
+	sta $00
+	sta $01
 
 ;PROGRAMUL 8
 define numarul1 $ae
@@ -52,7 +52,7 @@ define numarul2 $ae
        stx      $02
        lda      $00
        cmp      $01
-       bne      final
+       bne	final
        inx
 final: stx      $02
 
@@ -61,19 +61,16 @@ define numarul1 $ae
 define numarul2 $f
        lda      #numarul1
        sta      $00
-       lda      #numarul2
-       sta      $01
-       cmp      $00
-
-       bcs      final
-
-
-       ldx      $00
-       sta      $00
-       stx      $01
+       lda	#numarul2
+       sta	$01
+       cmp	$00
+       bcs	final
+       ldx	$00
+       sta	$00
+       stx	$01
 final: brk
 
-PROGRAMUL 10
+;PROGRAMUL 10
 define          comparat   $ae
 define          comparator $f
                 lda        #comparat
@@ -87,8 +84,8 @@ maimaresauegal: bne        maimare
 maimare:        sta        $02
 final:          brk
 
-PROGRAMUL 11
-lda # % 01 11 11 00
+;PROGRAMUL 11
+           lda # % 01 11 11 00
            sta $00
            lda # % 01 10 01 11
            sta $01
