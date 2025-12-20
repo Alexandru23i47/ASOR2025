@@ -6,7 +6,7 @@ Se dorește înlocuirea tuturor aparițiilor unui cuvânt cu un alt cuvânt înt
 
 ## Comanda sed (formă completă)
 
-```
+```shell
 bash
 sed 's/vechi/nou/g' fisier.txt
 ```
@@ -34,7 +34,7 @@ Se dorește eliminarea tuturor liniilor goale dintr-un fișier text, pentru a ob
 
 ## Comanda sed (formă completă)
 
-```
+```shell
 bash
 sed '/^$/d' fisier.txt
 ```
@@ -62,7 +62,7 @@ Se dorește afișarea exclusiv a liniilor care conțin un anumit cuvânt (de exe
 
 ## Comanda sed (formă completă)
 
-```
+```shell
 bash
 sed -n '/eroare/p' fisier.log
 ```
@@ -89,7 +89,7 @@ Se dorește afișarea conținutului unui fișier cu numerotarea fiecărei linii,
 
 ## Comanda sed (formă completă)
 
-```
+```shell
 bash
 sed = fisier.txt | sed 'N;s/\n/ /'
 ```
@@ -118,7 +118,7 @@ Se dorește eliminarea liniilor de comentariu (care încep cu #) dintr-un fișie
 
 ## Comanda sed (formă completă)
 
-```
+```shell
 bash
 sed '/^#/d' configurare.conf
 ```
