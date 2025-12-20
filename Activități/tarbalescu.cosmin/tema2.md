@@ -1,57 +1,88 @@
 ### Problema 1
-Pentru a vedea ultima linie dintr-un fișier, trebuie ținut minte:
+
+Pentru a vedea ultimul rând dintr-un fișier, trebuie ținută minte comanda specifică `tail`:
+
 ```bash
 tail -1 fisier.txt
 ```
-Comanda cu **sed**:
+
+Un rezultat echivalent, folosind o comandă **sed**:
+
 ```bash
 sed -n '$p' fisier.txt
 ```
+
 Aici,
-- `sed` citește fișierul linie cu linie
-- `-n` dezactivează afișarea implicită 
-- `$` selecteaza ultima linie
-- `p` tipărește linia selectată
+
+- `sed` citește fișierul rând cu rând
+- `-n` dezactivează afișarea imediată a rândurilor
+- `$` se referă la ultimul rând
+- `p` tipărește rândul selectat
 
 ### Problema 2
-Numărul de linii dintr-un fișier:
+
+Calcularea numărului de rânduri dintr-un fișier-text:
+
 ```bash
 wc -l fisier.txt
 ```
-Comanda cu **sed**:
+
+Un rezultat echivalent, folosind o comandă **sed**:
+
 ```bash
 sed -n '$=' fisier.txt
 ```
+
 Aici,
-- `sed` numerotează intern liniile
-- `$` ajunge la ultima linie
-- `=` afișează numărul liniei curente
+
+- `sed` numerotează intern rândurile
+- `$` se referă la ultimul rând
+- `=` afișează numărul rândului curent
+  
 ### Problema 3
-Afișarea liniilor 10–20 dintr-un fișier fără a memora `less` sau `awk`
-Comanda cu **sed**:
+
+Afișarea rândurilor 10–20 dintr-un fișier-text fără a memora opțiuni ale comenzilor `less` sau `awk`:
+
 ```bash
 sed -n '10,20p' fisier.txt
 ```
-- `10` si `20` definește un interval de linii
-- `p` tipărește doar acel interval
-- `-n` dezactivează restul output-ului
+
+Aici,
+
+- valorile `10` și `20` sunt capetele unui interval de adrese de rânduri
+- `p` tipărește doar rândurile corespunzând acestui interval
+- `-n` dezactivează tipărirea imediată a restului *output*-ului (datelor de ieșire)
+
 ### Problema 4
-Afișarea doar liniilor care conțin un cuvânt( fără `grep`)
+
+Afișarea doar a rândurilor care conțin un cuvânt dat (fără să apelăm la comanda `grep`):
+
 ```bash
 sed -n '/error/p' fisier.log
 ```
-- `/error/` selectează liniile care conțin „error”
+
+Aici,
+
+- `/error/` selectează rândurile care conțin expresia „error”
 - `p` le afișează
-- `-n` oprește afișarea celorlalte linii
+- `-n` oprește afișarea imediată a celorlalte rânduri
+  
 ### Problema 5
-Prima linie dintr-un fișier
+
+Afișarea primului rând dintr-un fișier-text:
+
 ```bash
 head -1 fisier.txt
 ```
-Comanda cu **sed**:
+
+Un rezultat echivalent, folosind o comandă **sed**:
+
 ```bash
 sed -n '1p' fisier.txt
 ```
-- `1` reprezintă prima linie
-- `p` afișează linia
-- `-n` evită afișarea celorlalte linii
+
+Aici,
+
+- `1` reprezintă primul rând
+- `p` afișează rândul
+- `-n` evită afișarea imediată a celorlalte rânduri
