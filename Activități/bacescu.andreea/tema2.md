@@ -18,16 +18,19 @@ prelucrării fluxurilor de date în linia de comandă.
 **Problemă:** - Ștergerea spațiilor inutile de la finalul fiecărei linii dintr-un flux de text.
 
 **Comandă:**
+
 ```bash
-printf "text1   \ntext2  \ntext3 \n" | sed 's/[ \t]*$//'
+printf "text1   \ntext2  \ntext3 \n" | sed -E 's/[ \t]{1,}$/%/'
 ```
 
 **Explicație:**
+
 - `printf` generează un flux de text cu spații la final de linie.
 - Operatorul `|` transmite fluxul către comanda `sed`.
-- `[ \t]*` identifică orice număr de spații sau taburi.
+- `[ \t]{1,}` identifică orice număr nenul de spații sau taburi.
 - `$` indică sfârșitul liniei.
-- Comanda de substituție elimină aceste caractere.
+- Comanda de substituție elimină aceste caractere *goale* și le
+  înlocuiește cu caracterul de control `%`.
 
 ---
 
@@ -36,11 +39,15 @@ printf "text1   \ntext2  \ntext3 \n" | sed 's/[ \t]*$//'
 **Problemă:** - Afișarea de două ori a liniilor cu număr par dintr-un flux de date.
 
 **Comandă:**
+
 ```bash
+# daca sed-ul din Alpine Linux nu accepta formula `~`:
+# testati comanda urmatoare in emulatorul [ https://sed.js.org/ ]
 printf "a\nb\nc\nd\n" | sed '2~2p'
 ```
 
 **Explicație:**
+
 - `printf` generează mai multe linii de text.
 - `2~2` selectează fiecare a doua linie, începând cu linia 2.
 - `p` afișează suplimentar liniile selectate.
@@ -53,15 +60,17 @@ printf "a\nb\nc\nd\n" | sed '2~2p'
 **Problemă:** - Afișarea exclusivă a liniilor care nu conțin cuvântul „error”.
 
 **Comandă:**
+
 ```bash
 printf "ok\nerror\nfatal\n" | sed -n '/error/!p'
 ```
 
 **Explicație:**
+
 - `printf` generează un flux de text.
 - `/error/` este expresia regulată căutată.
-- `!` inversează selecția.
-- `p` afișează doar liniile care nu se potrivesc.
+- `!` inversează selecția (este un `not`).
+- `p` afișează doar liniile care se potrivesc.
 - `-n` oprește afișarea implicită.
 
 ---
@@ -71,11 +80,13 @@ printf "ok\nerror\nfatal\n" | sed -n '/error/!p'
 **Problemă:** - Înlocuirea cuvântului „end” doar dacă apare la sfârșitul liniei.
 
 **Comandă:**
+
 ```bash
 printf "the end\nend game\nhappy end\n" | sed 's/end$/stop/'
 ```
 
 **Explicație:**
+
 - `printf` generează mai multe linii de text.
 - `end$` caută cuvântul „end” doar la final de linie.
 - `s` este comanda de substituție.
@@ -88,6 +99,7 @@ printf "the end\nend game\nhappy end\n" | sed 's/end$/stop/'
 **Problemă:** - Inserarea unei linii informative după fiecare linie care conține „START”.
 
 **Comandă:**
+
 ```bash
 printf "START\nproces\nSTART\n" | sed '/START/a Linie adaugata'
 ```
