@@ -1,4 +1,4 @@
-# 1.Afișarea unei Singure Linii Specifică dintr-un Fișier
+# 1. Afișarea unei Singure Linii Specifică dintr-un Fișier
 Această comandă rezolvă problema extragerii rapide a unei linii specifice (de exemplu, linia a 10-a) dintr-un fișier mare:
 
 ```shell
@@ -32,7 +32,7 @@ Comanda fără `-n`: seq 15 | sed `10p` :
 15
 ```
 
-# 2.Inversarea Ordinii Cuvintelor sau a Datelor
+# 2. Inversarea Ordinii Cuvintelor sau a Datelor
 Această comandă rezolvă problema restructurării rapide a datelor, în special inversarea ordinii a două sau mai multe câmpuri de text pe o linie. Este utilă, de exemplu, pentru a inversa formatul "Nume Prenume" în "Prenume, Nume".
 
 ```shell
@@ -84,7 +84,7 @@ Descrierea amănunțită a fiecărei componente:
 - `/, /` caracterul newline este înlocuit cu o virgulă urmată de un spațiu.
 
 
-# 4.Numărarea Totală a Liniilor
+# 4. Numărarea Totală a Liniilor
 Această comandă rezolvă problema determinării numărului total de linii dintr-un fișier.
 
 ```shell
@@ -108,7 +108,7 @@ Descrierea amănunțită a fiecărei componente:
 - `$=` prin combinarea $ cu =, se tipărește numărul liniei curente exact când aceasta este ultima linie, oferind astfel numărul total de linii.
 
 
-# 5.Extragerea Ultimelor Linii
+# 5. Extragerea Ultimelor Linii
 
 Această comandă rezolvă problema extragerii unui număr specific de linii de la sfârșitul fișierului (de exemplu, ultimele 3 linii).
 Această tehnică folosește adresa ! (negarea) și comanda d (Delete) pe liniile procesate.
